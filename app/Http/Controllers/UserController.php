@@ -9,8 +9,7 @@ use App\Models\User;
 class UserController extends Controller
 {
     public function index(){
-        $users = User::all();
-
+        $users = User::paginate(5);
         return Inertia::render('User/Index', [
             'users' => $users
         ]);
