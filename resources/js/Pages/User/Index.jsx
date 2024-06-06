@@ -33,12 +33,12 @@ export default function UserIndex({ auth, users }) {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {users.data.map(({id, name, email}) => (
+                                    {users.data.map(({id, name, email, role}) => (
                                         <tr key={id} className="border-b-2">
                                             <td className="px-6 py-3 whitespace-nowrap">{id}</td>
                                             <td className="px-6 py-3 whitespace-nowrap">{name}</td>
                                             <td className="px-6 py-3 whitespace-nowrap">{email}</td>
-                                            <td className="px-6 py-3 whitespace-nowrap">&nbsp;</td>
+                                            <td className="px-6 py-3 whitespace-nowrap">{role}</td>
                                         </tr>
                                     ))}
                                 </tbody>
