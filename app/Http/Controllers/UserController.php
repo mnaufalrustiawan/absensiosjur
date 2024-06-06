@@ -27,6 +27,8 @@ class UserController extends Controller
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8|',
             'password_confirmation' => 'required|same:password',
+            
+
         ]);
 
         User::create($request->all());

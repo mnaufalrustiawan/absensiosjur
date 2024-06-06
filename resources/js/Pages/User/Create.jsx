@@ -8,6 +8,7 @@ import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Link, useForm } from '@inertiajs/react';
 import { Transition } from '@headlessui/react';
+import Selectbox from '@/Components/Selectbox';
 
 
 export default function UserIndex({ auth }) {
@@ -18,6 +19,7 @@ export default function UserIndex({ auth }) {
         email: "", 
         password: "",
         password_confirmation: "",
+        role: "user",
     });
 
     const submit = (e) => {
@@ -69,6 +71,31 @@ export default function UserIndex({ auth }) {
                                         />
 
                                         <InputError className="mt-2" message={errors.name} />
+                                    </div>
+
+                                    <div>
+                                        <InputLabel htmlFor="role" value="Role" />
+                                        <Selectbox onChange={(e) => setData('role', e.target.value)} id="role" currentValue="user"  option={[
+                                            {
+                                                value: "admin",
+                                                label: "Admin",
+                                            },
+                                            {
+                                                value: "user",
+                                                label: "User",
+                                            },
+                                        ]} />
+                                        {/* <TextInput
+                                            id="email"
+                                            type="email"
+                                            className="mt-1 block w-full"
+                                            value={data.email}
+                                            onChange={(e) => setData('email', e.target.value)}
+                                            required
+                                            autoComplete="username"
+                                        /> */}
+
+                                        <InputError className="mt-2" message={errors.email} />
                                     </div>
 
                                     <div>
