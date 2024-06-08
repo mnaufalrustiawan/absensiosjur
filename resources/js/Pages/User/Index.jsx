@@ -30,6 +30,7 @@ export default function UserIndex({ auth, users }) {
                                         <th className="px-6 py-3 text-left text-lgfont-medium text-black">name</th>
                                         <th className="px-6 py-3 text-left text-lgfont-medium text-black">email</th>
                                         <th className="px-6 py-3 text-left text-lgfont-medium text-black">role</th>
+                                        <th className="px-6 py-3 text-left text-lgfont-medium text-black">&nbsp;</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -39,6 +40,11 @@ export default function UserIndex({ auth, users }) {
                                             <td className="px-6 py-3 whitespace-nowrap">{name}</td>
                                             <td className="px-6 py-3 whitespace-nowrap">{email}</td>
                                             <td className="px-6 py-3 whitespace-nowrap">{role}</td>
+                                            <td className="px-6 py-3 whitespace-nowrap">
+                                                <Link  href={route('users.edit', id)}>
+                                                        
+                                                        edit</Link>
+                                            </td>
                                         </tr>
                                     ))}
                                 </tbody>

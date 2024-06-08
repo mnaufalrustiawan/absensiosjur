@@ -11,24 +11,25 @@ import { Transition } from '@headlessui/react';
 import Selectbox from '@/Components/Selectbox';
 
 
-export default function UserInde({ user,auth }) {
+export default function UserEdit({ user, auth }) {
+    console.log(user);
 
-    const { data, setData, post, errors, processing, recentlySuccessful } = 
+    const { data, setData, patch, errors, processing, recentlySuccessful } = 
     useForm({
-        name: "",
-        email: "", 
-        password: "",
+        name: user.name,
+        email: user.email, 
+        password: "" ,
         password_confirmation: "",
-        role: "user",
+        role: user.role,
     });
 
     const submit = (e) => {
         e.preventDefault();
 
-        post(route("users.store"), {
+        patch(route("users.update", user.id), {
             preserveScroll: true,
             onSuccess: () => { 
-                alert("User Created");
+                alert("User updated");
             },
             onError: (errors) => {
                 console.log(errors);
@@ -49,10 +50,10 @@ export default function UserInde({ user,auth }) {
                         <div className="p-6 text-gray-900">
                             <section className="max-w-xl">
                                 <header>
-                                    <h2 className="text-lg font-medium text-gray-900">Creat User</h2>
+                                    <h2 className="text-lg font-medium text-gray-900">Edit User</h2>
 
                                     <p className="mt-1 text-sm text-gray-600">
-                                        create new user
+                                        Edit your account.
                                     </p>
                                 </header>
 
@@ -75,7 +76,7 @@ export default function UserInde({ user,auth }) {
 
                                     <div>
                                         <InputLabel htmlFor="role" value="Role" />
-                                        <Selectbox onChange={(e) => setData('role', e.target.value)} id="role" currentValue="user"  option={[
+                                        <Selectbox onChange={(e) => setData('role', e.target.value)} id="role" currentValue={data.role}  option={[
                                             {
                                                 value: "admin",
                                                 label: "Admin",
