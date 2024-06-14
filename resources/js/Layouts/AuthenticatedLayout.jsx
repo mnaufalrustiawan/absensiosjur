@@ -58,7 +58,7 @@ export default function Authenticated({ user, header, children }) {
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 {menu(user.role).map((item, index) => {
                                     return (
-                                        <NavLink 
+                                        <NavLink
                                             key={index}
                                             href={item.href}
                                             active={item.current}
@@ -137,7 +137,7 @@ export default function Authenticated({ user, header, children }) {
                     <div className="pt-2 pb-3 space-y-1">
                         {menu(user.role).map((item, index) => {
                             return (
-                                <ResponsiveNavLink 
+                                <ResponsiveNavLink
                                     key={index}
                                     href={item.href}
                                     active={item.current}
@@ -145,7 +145,7 @@ export default function Authenticated({ user, header, children }) {
                                     {item.name}
                                 </ResponsiveNavLink>
                             );
-                        })} 
+                        })}
                     </div>
 
                     <div className="pt-4 pb-1 border-t border-gray-200">

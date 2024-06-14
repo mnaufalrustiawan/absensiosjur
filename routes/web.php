@@ -25,11 +25,11 @@ Route::middleware(['auth'])->group (function () {
     Route::post('/users/store', [UserController::class, 'store'])->name('users.store');
     Route::get('/users/edit/{user}', [UserController::class, 'edit'])->name('users.edit');
     Route::patch('/users/update/{user}', [UserController::class, 'update'])->name('users.update');
-    
+
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/profile/partials/edit', [ProfileController::class, 'Edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
